@@ -1,31 +1,32 @@
+package vn.edu.vnuk.contacts.sql;
+
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Sql2010CreateContacts {
+public class Sql5010InsertIntoContacts {
 	private final Connection connection;
 	private final String sqlQuery;
 	
-	public Sql2010CreateContacts(Connection connection) {
+	public Sql5010InsertIntoContacts(Connection connection) {
 		this.connection = connection;
 		
-		this.sqlQuery = "CREATE TABLE IF NOT EXISTS contacts ("
-				+ 	"id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, "
-				+ 	"name VARCHAR(255) NOT NULL,"
-				+ 	"email VARCHAR(255) NOT NULL,"
-				+ 	"address VARCHAR(255) NOT NULL,"
-				+ 	"date_of_register DATE NOT NULL"
-				+ ");"
+		this.sqlQuery = "INSERT INTO contacts (name, email, address, date_of_register) "
+				+ 	"values "
+				
+				+ 	"('Minh Quan', 'meehouse@gmail.com', '327 Hung Vuong, Da Nang, Viet Nam', '2019-03-20' ) "
+				+ ";"
 			;
 	}
 	
 	public void run() throws SQLException {
 
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(">  Sql2010CreateContacts started");
+		System.out.println(">  Sql5010InsertIntoContacts started");
 		
 		try {
 	        connection.prepareStatement(sqlQuery).execute();
-	        System.out.println("   TABLE \'contacts\' successfully created");
+	        System.out.println("   DATA successfully loaded in \'contacts\'");
 		
 		}
 		
@@ -35,7 +36,7 @@ public class Sql2010CreateContacts {
 		}
 		
 		finally {
-			System.out.println("<  Sql2010CreateContacts ended");
+			System.out.println("<  Sql5010InsertIntoContacts ended");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("");
 		}

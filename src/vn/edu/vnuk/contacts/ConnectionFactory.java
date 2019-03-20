@@ -1,4 +1,4 @@
-package ConnectionFactory;
+package vn.edu.vnuk.contacts;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

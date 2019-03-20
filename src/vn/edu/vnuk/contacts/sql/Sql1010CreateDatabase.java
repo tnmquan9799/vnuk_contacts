@@ -1,23 +1,26 @@
+package vn.edu.vnuk.contacts.sql;
+
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Sql1000DropDatabase {
+public class Sql1010CreateDatabase {
 	private final Connection connection;
 	private final String sqlQuery;
 	
-	public Sql1000DropDatabase(Connection connection) {
+	public Sql1010CreateDatabase(Connection connection) {
 		this.connection = connection;
-		this.sqlQuery = "DROP DATABASE IF EXISTS contacts;";
+		this.sqlQuery = "CREATE DATABASE IF NOT EXISTS vnuk_contacts;";
 	}
 	
 	public void run() throws SQLException {
 
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(">  Sql1000DropDatabase started");
+		System.out.println(">  Sql1010CreateDatabase started");
 		
 		try {
 	        connection.prepareStatement(sqlQuery).execute();
-	        System.out.println("   DB \'contacts\' successfully dropped");
+	        System.out.println("   DB \'vnuk_contacts\' successfully created");
 		
 		}
 		
@@ -27,11 +30,10 @@ public class Sql1000DropDatabase {
 		}
 		
 		finally {
-			System.out.println("<  Sql1000DropDatabase ended");
+			System.out.println("<  Sql1010CreateDatabase ended");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("");
 		}
 			
 	}
-
 }

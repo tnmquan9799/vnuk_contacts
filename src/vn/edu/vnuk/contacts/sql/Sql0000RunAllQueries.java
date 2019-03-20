@@ -1,7 +1,9 @@
+package vn.edu.vnuk.contacts.sql;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import ConnectionFactory.ConnectionFactory;
+import vn.edu.vnuk.contacts.ConnectionFactory;
 
 
 
@@ -25,8 +27,6 @@ public static void main(String[] args) throws SQLException {
 				.getConnection("jdbc:mysql://localhost/vnuk_contacts");
 		
 		//Create
-		new Sql1000DropDatabase(connectionTable).run();
-		new Sql1010CreateDatabase(connectionTable).run();
 		new Sql2010CreateContacts(connectionTable).run();
 		
 		

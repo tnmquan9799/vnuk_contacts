@@ -1,29 +1,26 @@
+package vn.edu.vnuk.contacts.sql;
+
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Sql5010InsertIntoContacts {
+public class Sql1000DropDatabase {
 	private final Connection connection;
 	private final String sqlQuery;
 	
-	public Sql5010InsertIntoContacts(Connection connection) {
+	public Sql1000DropDatabase(Connection connection) {
 		this.connection = connection;
-		
-		this.sqlQuery = "INSERT INTO contacts (name, email, address, date_of_register) "
-				+ 	"values "
-				
-				+ 	"('Minh Quan', 'meehouse@gmail.com', '327 Hung Vuong, Da Nang, Viet Nam', '2019-03-20' ) "
-				+ ";"
-			;
+		this.sqlQuery = "DROP DATABASE IF EXISTS contacts;";
 	}
 	
 	public void run() throws SQLException {
 
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(">  Sql5010InsertIntoContacts started");
+		System.out.println(">  Sql1000DropDatabase started");
 		
 		try {
 	        connection.prepareStatement(sqlQuery).execute();
-	        System.out.println("   DATA successfully loaded in \'contacts\'");
+	        System.out.println("   DB \'contacts\' successfully dropped");
 		
 		}
 		
@@ -33,10 +30,11 @@ public class Sql5010InsertIntoContacts {
 		}
 		
 		finally {
-			System.out.println("<  Sql5010InsertIntoContacts ended");
+			System.out.println("<  Sql1000DropDatabase ended");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("");
 		}
 			
 	}
+
 }
