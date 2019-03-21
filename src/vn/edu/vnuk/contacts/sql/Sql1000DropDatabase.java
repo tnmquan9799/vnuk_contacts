@@ -10,7 +10,7 @@ public class Sql1000DropDatabase {
 	
 	public Sql1000DropDatabase(Connection connection) {
 		this.connection = connection;
-		this.sqlQuery = "DROP DATABASE IF EXISTS contacts;";
+		this.sqlQuery = "DROP DATABASE IF EXISTS vnuk_contacts;";
 	}
 	
 	public void run() throws SQLException {
